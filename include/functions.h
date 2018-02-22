@@ -1,4 +1,7 @@
 
+#include <string>
+#include <iostream>
+
 
 bool balancedSymbols(std::string input);
 
