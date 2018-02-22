@@ -14,25 +14,21 @@ bool balancedSymbols(std::string input){
 
   for(auto it = input.begin(); it != input.end(); it++){
 
-      if(*it == "{"){
-        symbolStack.push(*it);
+    if(*it == '[' || '{' || '('){
+      symbolStack.push(*it);
+    }
+    else{
+
+      if(*it == ']' && symbolStack.top() == '['){
+        symbolStack.pop();
       }
-
-    // if(*it == "[" || "{" || "("){
-    //   symbolStack.push(*it);
-    // }
-    // else{
-
-    //   if(*it == "]" && symbolStack.top() == "["){
-    //     symbolStack.pop();
-    //   }
-    //   else if(*it == "}" && symbolStack.top() == "{"){
-    //     symbolStack.pop();
-    //   }
-    //   else if(*it == ")" && symbolStack.top() == "("){
-    //     symbolStack.pop();
-    //   }
-    // }
+      else if(*it == '}' && symbolStack.top() == '{'){
+        symbolStack.pop();
+      }
+      else if(*it == ')' && symbolStack.top() == '('){
+        symbolStack.pop();
+      }
+    }
   }
   return symbolStack.empty();
 }
@@ -60,5 +56,11 @@ bool balancedSymbols(std::string input){
   // }
 
 
+
+int main(int argc, char** argv){
+
+
+
+}
 
 
