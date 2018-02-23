@@ -7,6 +7,13 @@
 #include <string.h>
 #include <stdio.h>
 
+
+
+/**
+* method that takes a string as input
+* and tries to see if its balanced with open and
+* closing symbols
+*/
 bool balancedSymbols(std::string input){
 
   std::stack<char, std::deque<char> > symbolStack;
@@ -44,7 +51,10 @@ bool balancedSymbols(std::string input){
 
 
 
-
+/**
+* takes an infix math equation and converts it
+* to a post fix version of the equation
+*/
 std::string iToP(std::string input){
   std::stack<char, std::deque<char> > mathSymbols;
 
