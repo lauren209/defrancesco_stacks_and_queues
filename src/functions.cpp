@@ -59,16 +59,12 @@ std::string iToP(std::string input){
   std::stack<char, std::deque<char> > mathSymbols;
 
   for(auto it = input.begin(); it != input.end(); it++){
-
     if(*it == '0' || *it =='9' || *it == '8' || *it == '7'
       || *it == '6' || *it == '5' || *it == '4'
       || *it == '3' || *it == '2' || *it == '1'){
       std::cout<< *it <<" ";
   }
-
-
 }
-
 
 for(auto it = input.begin(); it != input.end(); it++){
 
@@ -102,6 +98,7 @@ for(auto it = input.begin(); it != input.end(); it++){
     }
   }
 }
+return " ";
 }
 
 
