@@ -21,7 +21,7 @@ bool balancedSymbols(std::string input){
 
   for(auto it = input.begin(); it != input.end(); it++){
 
-    std::cout << *it << std::endl;
+    // std::cout << *it << std::endl;
 
     if(*it == '[' || *it == '(' || *it == '{'){
       symbolStack.push(*it);
@@ -76,28 +76,31 @@ for(auto it = input.begin(); it != input.end(); it++){
   if(*it == '('){
     mathSymbols.push(*it);
   }
-  else if(*it == ')'){
+  if(*it == ')'){
     mathSymbols.push(*it);
     while(*it != '('){
       std::cout << mathSymbols.top() << " ";
       mathSymbols.pop();
     }
   }
-  else if((*it == '*' || *it == '/')){
+  if((*it == '*' || *it == '/')){
     mathSymbols.push(*it);
-    while(mathSymbols.top() != '+' || mathSymbols.top() != '-'){
+      if(mathSymbols.top() != '+' || mathSymbols.top() != '-'){
       std::cout << mathSymbols.top() << " ";
       mathSymbols.pop();
-
     }
   }
-  else if((*it == '+' || *it == '-')){
+  if((*it == '+' || *it == '-')){
     mathSymbols.push(*it);
     std::cout << mathSymbols.top() << " ";
     mathSymbols.pop();
-
   }
-
+  else{
+    while(!mathSymbols.empty()){
+      std::cout << mathSymbols.top() << " ";
+      mathSymbols.pop();
+    }
+  }
 }
 }
 
@@ -112,13 +115,19 @@ for(auto it = input.begin(); it != input.end(); it++){
 
 
 int main(int argc, char** argv){
+  std::cout << "first" << std::endl;
+  balancedSymbols("[ sahfklb ] [fdas ] (");
+  std::cout << "second" << std::endl;
+  balancedSymbols("[ sahfklb ] { sdc }  ( dvav )");
+  std::cout << "third" << std::endl;
+  balancedSymbols("[{{[{{[[{]}]}}}}}");
 
-  // balancedSymbols("[ sahfklb ] [fdas ] (");
-  // std::cout << "hit" << std::endl;
-
-
+  std::cout << "first" << std::endl;
   iToP("1+2+3");
-
+  std::cout << "second" << std::endl;
+  iToP("1*3");
+  std::cout << "third" << std::endl;
+  iToP("1+2+3+4");
 }
 
 
